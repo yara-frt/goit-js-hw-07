@@ -10,14 +10,8 @@ const markup = galleryItems.reduce((acc, { preview, original, description }) => 
 </a>`, '');
 list.insertAdjacentHTML('beforeend', markup);
 
-list.addEventListener('click', onClickGallery)
+let originalGallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
-function onClickGallery(evt) {
-  evt.preventDefault()
-  if (!evt.target.classList.contains('gallery')) {
-    let originalGallery = new SimpleLightbox('.gallery a', {
-      captionsData: 'alt',
-      captionDelay: 250,
-    });
-  }
-}
